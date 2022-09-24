@@ -10,9 +10,9 @@ public class TestController : MonoBehaviour
     
     [SerializeField] private INLUService nluService;
 
-    public void CallOnClick()
+    public async void CallOnClick()
     {
-        Debug.Log($"NLU SERVICE RESPONSE: {nluService.GetResponse(textInputField.text)}");
+        Debug.Log($"NLU SERVICE RESPONSE: {await nluService.GetResponseAsync(textInputField.text)}");
         Debug.Log($"{textInputField.text}");
     }
 }
