@@ -1,5 +1,6 @@
 using System;
 using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace NLU
 {
@@ -11,7 +12,9 @@ namespace NLU
         
         public override string GetResponse(string prompt)
         {
-            var responseString = client.GetResponse("localhost:5005");
+            var task = Task.Run(() => client.GetStringAsync("http://localhost:5005")); 
+            task.Wait();
+            var responseString = task.Result;
             // return $"Dummy response for prompt: {prompt}";
             //var responseString = "hi";
             return responseString;
