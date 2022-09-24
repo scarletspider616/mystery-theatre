@@ -7,20 +7,6 @@ using Newtonsoft.Json;
 
 namespace NLU
 {
-    // public class RasaQuery
-    // {
-    //     public string sender;
-    //     public string message;
-    // }
-
-    public class RasaReply
-    {
-        public string recipient_id;
-        public string text;
-
-    }
-
-    [Serializable]
     public class RasaNLUService : INLUService
     {
 
@@ -35,14 +21,11 @@ namespace NLU
                 message = prompt
                 }));
 
-            data.Headers.ContentType = new MediaTypeHeaderValue("application/json"); // <--
+            data.Headers.ContentType = new MediaTypeHeaderValue("application/json");
             var response = await client.PostAsync("http://localhost:5005/webhooks/rest/webhook", data);
             var responseString = await response.Content.ReadAsStringAsync();
             var reply = JsonConvert.DeserializeObject<List<RasaReply>>(responseString);
-            var actualReply = reply[0];
-
-            return actualReply.text;
-        }
-        
+            return reply[0].text;
+        }       
     }
 }
