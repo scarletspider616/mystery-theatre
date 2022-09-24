@@ -1,8 +1,11 @@
+using System;
+using UnityEngine;
+
 namespace NLU
 {
-    public interface INLUService
+    public abstract class INLUService : MonoBehaviour
     {
         // TODO: Update in/out to be models containing return codes, ctx etc
-        public string GetResponse(string prompt);
+        public abstract string GetResponse(string prompt);
     }
 }
