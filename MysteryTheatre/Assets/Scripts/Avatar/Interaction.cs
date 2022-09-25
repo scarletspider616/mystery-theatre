@@ -23,8 +23,6 @@ namespace Avatar
         public void Speak(string transcript)
         {
             m_Animator.SetTrigger("Speak");
-            Debug.Log("speak trigger has been set");
-
         }
     }
 }

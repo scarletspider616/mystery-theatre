@@ -13,11 +13,12 @@ public class TestController : MonoBehaviour
 
     [SerializeField] public Interaction interaction;
 
-    public void CallOnClick()
+    public async void CallOnClick()
     {
-        Debug.Log($"NLU SERVICE RESPONSE: {nluService.GetResponse(textInputField.text)}");
-        Debug.Log($"{textInputField.text}");
-        interaction.Speak("hi");
-
+        //Debug.Log($"NLU SERVICE RESPONSE: {await nluService.GetResponseAsync(textInputField.text)}");
+        //Debug.Log($"{textInputField.text}");
+        var response = await nluService.GetResponseAsync(textInputField.text);
+        Debug.Log(response);
+        interaction.Speak(await nluService.GetResponseAsync(textInputField.text));
     }
 }

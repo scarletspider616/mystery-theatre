@@ -175,8 +175,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textInputField: {fileID: 1641176303}
-  nluService: {fileID: 1914034592}
-  interaction: {fileID: 0}
+  nluService: {fileID: 1914034594}
+  interaction: {fileID: 2019137269}
 --- !u!1 &172346945
 GameObject:
   m_ObjectHideFlags: 0
@@ -336,10 +336,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: 8b713a09f395f4d80b39accffa1d896d, type: 3}
-        m_TargetAssemblyTypeName: UnityEngine.Object, UnityEngine
-        m_MethodName: 
-        m_Mode: 5
+      - m_Target: {fileID: 29629771}
+        m_TargetAssemblyTypeName: TestController, Assembly-CSharp
+        m_MethodName: CallOnClick
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1301,7 +1301,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1914034593}
-  - component: {fileID: 1914034592}
+  - component: {fileID: 1914034594}
   m_Layer: 0
   m_Name: NLUService
   m_TagString: Untagged
@@ -1309,18 +1309,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1914034592
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1914034591}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e1e9570e4af455f8121ee781f5da98f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1914034593
 Transform:
   m_ObjectHideFlags: 0
@@ -1336,6 +1324,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1914034594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1914034591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b9a23e8b40459641aa504feb3074284, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2019137266 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9204564969751787591, guid: 25851a9c3670c48f4b2733d176ccdd77, type: 3}
