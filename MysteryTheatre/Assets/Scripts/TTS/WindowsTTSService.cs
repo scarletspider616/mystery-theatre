@@ -12,7 +12,7 @@ namespace TTS
             {
                 FileName = "powershell.exe",
                 Arguments =
-                    $"-Command \"Add-Type -AssemblyName System.Speech; (New-Object System.Speech.Synthesis.SpeechSynthesizer).Speak('${transcript}');\"",
+                    $"-Command \"Add-Type -WindowStyle hidden -AssemblyName System.Speech; (New-Object System.Speech.Synthesis.SpeechSynthesizer).Speak('${transcript}');\"",
                 UseShellExecute = false,
                 RedirectStandardOutput = true,
                 WindowStyle = ProcessWindowStyle.Hidden,
