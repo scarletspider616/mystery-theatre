@@ -18,11 +18,19 @@ namespace Avatar
             _avatar = gameObject.GetComponent<AvatarCustomization>();
             // Get the animator associated with the gameObject
             m_Animator = _avatar.Animator;
+            // m_Animator.GetComponent<Animation>().yourAnimation.wrapMode=WrapMode.Loop;
         }
 
-        public void Speak(string transcript)
+        public void StartSpeaking()
         {
+            Debug.Log("onStartedSpeaking!");
             m_Animator.SetTrigger("Speak");
+        }
+
+        public void StopSpeaking() 
+        {
+            Debug.Log("onStopSpeaking");
+            m_Animator.SetTrigger("StopSpeaking");
         }
     }
 }

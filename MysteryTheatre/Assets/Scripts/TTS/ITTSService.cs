@@ -9,18 +9,25 @@ namespace TTS
     {
         public abstract void Speak(string transcript);
 
-        public UnityEvent onStartedSpeaking;
-        public UnityEvent onStoppedSpeaking;
+        public UnityEvent onStartedSpeaking = new UnityEvent();
+        public UnityEvent onStoppedSpeaking = new UnityEvent();
 
         protected System.Diagnostics.Process SpeechProcess;
         protected bool WasSpeaking;
         protected bool IsSpeaking;
 
-        private void Update()
+        protected void Update()
         {
             if (IsSpeaking == WasSpeaking) return;
-            if (IsSpeaking) onStartedSpeaking.Invoke();
-            else onStoppedSpeaking.Invoke();
+            
+            if (IsSpeaking) 
+            {
+                onStartedSpeaking.Invoke();
+            }
+            else {
+                onStoppedSpeaking.Invoke();
+            } 
+
             WasSpeaking = IsSpeaking;
         }
 
@@ -28,12 +35,12 @@ namespace TTS
         {
             transcript = transcript.Replace("'", @"\'");
             IsSpeaking = true;
+            SpeechProcess = System.Diagnostics.Process.Start(cmd, $"\"{transcript}\"");
             while (SpeechProcess?.HasExited == false)
             {
                 yield return null;
             }
 
-            SpeechProcess = System.Diagnostics.Process.Start(cmd, $"\"{transcript}\"");
             IsSpeaking = false;
             yield return null;
         }
