@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using NLU;
 using TMPro;
 using TTS;
@@ -42,12 +43,9 @@ public class TestController : MonoBehaviour
     {
         Debug.Log($"ON CLICK QUERY: {textInputField.text}");
         var responses = await nluService.GetResponseAsync(textInputField.text);
-
-        foreach (var response in responses)
-        {
-            Debug.Log(response);
-            _ttsService.Speak(response);
-            interaction.Speak(response);
-        }
+        var combinedResponse = string.Join(" ", responses);
+        Debug.Log(combinedResponse);
+        _ttsService.Speak(combinedResponse);
+        interaction.Speak(combinedResponse);
     }
 }
