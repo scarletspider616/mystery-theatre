@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -11,15 +13,28 @@ namespace TTS
         public UnityEvent onStoppedSpeaking;
 
         protected System.Diagnostics.Process SpeechProcess;
-        private bool _wasSpeaking;
+        protected bool WasSpeaking;
+        protected bool IsSpeaking;
 
         private void Update()
         {
-            var isSpeaking = (SpeechProcess != null && !SpeechProcess.HasExited);
-            if (isSpeaking == _wasSpeaking) return;
-            if (isSpeaking) onStartedSpeaking.Invoke();
+            if (IsSpeaking == WasSpeaking) return;
+            if (IsSpeaking) onStartedSpeaking.Invoke();
             else onStoppedSpeaking.Invoke();
-            _wasSpeaking = isSpeaking;
+            WasSpeaking = IsSpeaking;
+        }
+
+        protected IEnumerator DoSpeak(string cmd, string transcript)
+        {
+            IsSpeaking = true;
+            while (SpeechProcess?.HasExited == false)
+            {
+                yield return null;
+            }
+
+            SpeechProcess = System.Diagnostics.Process.Start(cmd, transcript);
+            IsSpeaking = false;
+            yield return null;
         }
     }
 }

@@ -1,4 +1,4 @@
-using UnityEngine.Events;
+using System.Collections;
 
 // https://forum.unity.com/threads/easy-speech-synthesis-on-a-mac.524216/
 
@@ -6,9 +6,11 @@ namespace TTS
 {
     public class MacTTSService : ITTSService
     {
+        private const string CMD = "/usr/bin/say";
+
         public override void Speak(string transcript)
         {
-            SpeechProcess = System.Diagnostics.Process.Start("/usr/bin/say", transcript);
+            StartCoroutine(DoSpeak(CMD, transcript));
         }
     }
 }

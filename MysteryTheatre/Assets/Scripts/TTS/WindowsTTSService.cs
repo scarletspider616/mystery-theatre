@@ -13,9 +13,12 @@ namespace TTS
                 Arguments =
                     $"-Command \"Add-Type -AssemblyName System.Speech; (New-Object System.Speech.Synthesis.SpeechSynthesizer).Speak('${transcript}');\"",
                 UseShellExecute = false,
-                RedirectStandardOutput = false
+                RedirectStandardOutput = true
             };
-            SpeechProcess = Process.Start("/usr/bin/say", transcript);
+            IsSpeaking = true;
+            SpeechProcess = Process.Start(startInfo);
+            SpeechProcess?.WaitForExit();
+            IsSpeaking = false;
         }
     }
 }
