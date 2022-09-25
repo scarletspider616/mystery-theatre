@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using NLU;
 using TMPro;
 using TTS;
@@ -46,11 +47,9 @@ public class TestController : MonoBehaviour
         _ttsService.onStartedSpeaking.AddListener(StartSpeaking)
         _ttsService.onStartedSpeaking.AddListener(StopSpeaking)
         
-        foreach (var response in responses)
-        {
-            Debug.Log(response);
-            _ttsService.Speak(response);
-        }
+        var combinedResponse = string.Join(" ", responses);
+        Debug.Log(combinedResponse);
+        _ttsService.Speak(combinedResponse);
     }
 
     void StartSpeaking() 
