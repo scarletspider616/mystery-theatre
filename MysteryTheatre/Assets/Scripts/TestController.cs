@@ -41,9 +41,13 @@ public class TestController : MonoBehaviour
     public async void CallOnClick()
     {
         Debug.Log($"ON CLICK QUERY: {textInputField.text}");
-        var response = await nluService.GetResponseAsync(textInputField.text);
-        Debug.Log(response);
-        _ttsService.Speak(response);
-        interaction.Speak(response);
+        var responses = await nluService.GetResponseAsync(textInputField.text);
+
+        foreach (var response in responses)
+        {
+            Debug.Log(response);
+            _ttsService.Speak(response);
+            interaction.Speak(response);
+        }
     }
 }
