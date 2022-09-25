@@ -20,9 +20,14 @@ namespace Avatar
             m_Animator = _avatar.Animator;
         }
 
-        public void Speak(string transcript)
+        public void Speak()
         {
             m_Animator.SetTrigger("Speak");
+        }
+
+        public void StopSpeaking() 
+        {
+            m_Animator.SetTrigger("Stop");
         }
     }
 }
