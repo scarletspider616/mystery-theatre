@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 
@@ -7,9 +8,9 @@ namespace NLU
     [Serializable]
     public class DummyNLUService : INLUService
     {
-        public async override Task<string> GetResponseAsync(string prompt)
+        public override Task<List<string>> GetResponseAsync(string prompt)
         {
-            return $"Dummy response for prompt: {prompt}";
+            return Task.FromResult(new List<string> {$"Dummy response for prompt: {prompt}"});
         }
     }
 }

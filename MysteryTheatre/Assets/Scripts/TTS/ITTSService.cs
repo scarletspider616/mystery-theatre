@@ -33,7 +33,7 @@ namespace TTS
                 yield return null;
             }
 
-            SpeechProcess = System.Diagnostics.Process.Start(cmd, transcript);
+            SpeechProcess = System.Diagnostics.Process.Start(cmd, $"\"{transcript}\"");
             IsSpeaking = false;
             yield return null;
         }
