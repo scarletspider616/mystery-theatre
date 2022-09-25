@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using NLU;
 using TMPro;
 using UnityEngine;
+using Avatar;
 
 public class TestController : MonoBehaviour
 {
@@ -10,9 +11,14 @@ public class TestController : MonoBehaviour
     
     [SerializeField] private INLUService nluService;
 
+    [SerializeField] public Interaction interaction;
+
     public async void CallOnClick()
     {
-        Debug.Log($"NLU SERVICE RESPONSE: {await nluService.GetResponseAsync(textInputField.text)}");
-        Debug.Log($"{textInputField.text}");
+        //Debug.Log($"NLU SERVICE RESPONSE: {await nluService.GetResponseAsync(textInputField.text)}");
+        //Debug.Log($"{textInputField.text}");
+        var response = await nluService.GetResponseAsync(textInputField.text);
+        Debug.Log(response);
+        interaction.Speak(await nluService.GetResponseAsync(textInputField.text));
     }
 }
