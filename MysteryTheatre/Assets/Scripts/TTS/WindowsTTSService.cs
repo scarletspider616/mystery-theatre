@@ -6,6 +6,7 @@ namespace TTS
     {
         public override void Speak(string transcript)
         {
+            transcript = transcript.Replace("'", @"\'");
             // PowerShell -Command "Add-Type –AssemblyName System.Speech; (New-Object System.Speech.Synthesis.SpeechSynthesizer).Speak('hello');"
             var startInfo = new ProcessStartInfo()
             {

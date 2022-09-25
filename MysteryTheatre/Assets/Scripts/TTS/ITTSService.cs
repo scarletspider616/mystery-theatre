@@ -26,6 +26,7 @@ namespace TTS
 
         protected IEnumerator DoSpeak(string cmd, string transcript)
         {
+            transcript = transcript.Replace("'", @"\'");
             IsSpeaking = true;
             while (SpeechProcess?.HasExited == false)
             {
