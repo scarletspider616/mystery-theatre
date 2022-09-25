@@ -11,14 +11,18 @@ namespace Avatar
         private AvatarCustomization _avatar;
         [SerializeField] private ITTSService _ttsService;
 
+        Animator m_Animator;
+
         private void Start()
         {
             _avatar = gameObject.GetComponent<AvatarCustomization>();
+            // Get the animator associated with the gameObject
+            m_Animator = _avatar.Animator;
         }
 
         public void Speak(string transcript)
         {
-            
+            m_Animator.SetTrigger("Speak");
         }
     }
 }

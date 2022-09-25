@@ -4,12 +4,14 @@ using NLU;
 using TMPro;
 using TTS;
 using UnityEngine;
+using Avatar;
 
 public class TestController : MonoBehaviour
 {
     [SerializeField] private TMP_InputField textInputField;
-
     [SerializeField] private INLUService nluService;
+    [SerializeField] public Interaction interaction;
+
 
     private ITTSService _ttsService;
 
@@ -36,11 +38,12 @@ public class TestController : MonoBehaviour
         }
     }
 
-    public void CallOnClick()
+    public async void CallOnClick()
     {
-        Debug.Log($"NLU SERVICE RESPONSE: {nluService.GetResponse(textInputField.text)}");
-        Debug.Log($"{textInputField.text}");
-        
-        _ttsService.Speak(nluService.GetResponse(textInputField.text));
+        Debug.Log($"ON CLICK QUERY: {textInputField.text}");
+        var response = await nluService.GetResponseAsync(textInputField.text);
+        Debug.Log(response);
+        _ttsService.Speak(response);
+        interaction.Speak(response);
     }
 }
