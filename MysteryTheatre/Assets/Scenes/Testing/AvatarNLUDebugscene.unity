@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657815, g: 0.49641192, b: 0.57481617, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -176,6 +176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textInputField: {fileID: 1641176303}
   nluService: {fileID: 1914034592}
+  interaction: {fileID: 0}
 --- !u!1 &172346945
 GameObject:
   m_ObjectHideFlags: 0
@@ -335,10 +336,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 29629771}
-        m_TargetAssemblyTypeName: TestController, Assembly-CSharp
-        m_MethodName: CallOnClick
-        m_Mode: 1
+      - m_Target: {fileID: 11500000, guid: 8b713a09f395f4d80b39accffa1d896d, type: 3}
+        m_TargetAssemblyTypeName: UnityEngine.Object, UnityEngine
+        m_MethodName: 
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1033,6 +1034,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3375371761541802143, guid: 25851a9c3670c48f4b2733d176ccdd77, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9204564969751787588, guid: 25851a9c3670c48f4b2733d176ccdd77, type: 3}
+      propertyPath: BodyFat
+      value: -16.034662
+      objectReference: {fileID: 0}
+    - target: {fileID: 9204564969751787588, guid: 25851a9c3670c48f4b2733d176ccdd77, type: 3}
+      propertyPath: EyesSize
+      value: -19.80213
+      objectReference: {fileID: 0}
+    - target: {fileID: 9204564969751787588, guid: 25851a9c3670c48f4b2733d176ccdd77, type: 3}
+      propertyPath: JawWidth
+      value: -14.997655
+      objectReference: {fileID: 0}
     - target: {fileID: 9204564969751787589, guid: 25851a9c3670c48f4b2733d176ccdd77, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1319,6 +1336,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2019137266 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9204564969751787591, guid: 25851a9c3670c48f4b2733d176ccdd77, type: 3}
+  m_PrefabInstance: {fileID: 1548009179}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2019137269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2019137266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 359fc7b4c91dc4a1095467ac3f90d9b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ttsService: {fileID: 0}
 --- !u!1 &2034770770
 GameObject:
   m_ObjectHideFlags: 0
